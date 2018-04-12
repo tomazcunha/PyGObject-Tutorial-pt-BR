@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>20. Glade e Gtk.Builder &mdash; documentação Python GTK+ 3 Tutorial 3.4</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Buscar" href="search.html"/>
+    <link rel="top" title="documentação Python GTK+ 3 Tutorial 3.4" href="index.html"/>
+        <link rel="next" title="21. Objects" href="objects.html"/>
+        <link rel="prev" title="19. Arraste e solte" href="drag_and_drop.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python GTK+ 3 Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Instalação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2. Começando</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Noções básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">4. Como Lidar com Sequências de Caracteres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">5. Containers de Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">6. Label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entry.html">7. Entry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="button_widgets.html">8. Widgets de Botão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progressbar.html">9. Barra de Progresso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinner.html">10. Spinner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treeview.html">11. Widgets de Árvore e Lista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cellrenderers.html">12. CellRenderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="combobox.html">13. ComboBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconview.html">14. IconView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textview.html">15. Editor de Texto Multilinha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogs.html">16. Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popover.html">17. Popovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clipboard.html">18. Clipboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_and_drop.html">19. Arraste e solte</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">20. Glade e Gtk.Builder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-and-loading-the-glade-file">20.1. Criando e carregando o arquivo .glade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-widgets">20.2. Acessando Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connecting-signals">20.3. Conectando Sinais</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">20.4. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">21. Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application.html">22. Aplicação</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Descontinuada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout-table.html">Tabela</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python GTK+ 3 Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>20. Glade e Gtk.Builder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/builder.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="glade-and-gtk-builder">
+<h1>20. Glade e Gtk.Builder<a class="headerlink" href="#glade-and-gtk-builder" title="Link permanente para este título">¶</a></h1>
+<p>A classe <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Builder.html#Gtk.Builder" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Builder</span></code></a> oferece a você a oportunidade de projetar interfaces de usuário sem escrever uma única linha de código. Isso é possível descrevendo a interface por um arquivo XML e, em seguida, carregando a descrição XML em tempo de execução e criando os objetos automaticamente, o que a classe Builder faz por você. Para o propósito de não precisar escrever o XML manualmente, o aplicativo <a class="reference external" href="https://glade.gnome.org/">Glade</a> permite criar a interface do usuário de uma maneira WYSIWYG (o que você vê é o que obtém)</p>
+<p>Esse método possui várias vantagens:</p>
+<ul class="simple">
+<li>Menos código precisa ser escrito.</li>
+<li>As mudanças da interface do usuário podem ser vistas mais rapidamente, para que as interfaces de usuário possam melhorar.</li>
+<li>Designers sem habilidades de programação podem criar e editar interfaces de usuário.</li>
+<li>A descrição da interface do usuário é independente da linguagem de programação utilizada.</li>
+</ul>
+<p>Ainda existe código necessário para lidar com mudanças de interface acionadas pelo usuário, mas <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Builder.html#Gtk.Builder" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Builder</span></code></a> permite que você se concentre em implementar essa funcionalidade.</p>
+<div class="section" id="creating-and-loading-the-glade-file">
+<h2>20.1. Criando e carregando o arquivo .glade<a class="headerlink" href="#creating-and-loading-the-glade-file" title="Link permanente para este título">¶</a></h2>
+<p>Primeiro de tudo você tem que baixar e instalar o Glade. Existem <a class="reference external" href="https://wiki.gnome.org/action/show/Apps/Glade/Tutorials">vários tutoriais</a> sobre o Glade, então isso não é explicado aqui em detalhes. Vamos começar criando uma janela com um botão e salvando-a em um arquivo chamado <em>example.glade</em>. O arquivo XML resultante deve se parecer com isso.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;interface&gt;</span>
+  <span class="c">&lt;!-- interface-requires gtk+ 3.0 --&gt;</span>
+  <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkWindow&quot;</span> <span class="na">id=</span><span class="s">&quot;window1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;child&gt;</span>
+      <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkButton&quot;</span> <span class="na">id=</span><span class="s">&quot;button1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span> <span class="na">translatable=</span><span class="s">&quot;yes&quot;</span><span class="nt">&gt;</span>button<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;use_action_appearance&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;receives_default&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;use_action_appearance&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+      <span class="nt">&lt;/object&gt;</span>
+    <span class="nt">&lt;/child&gt;</span>
+  <span class="nt">&lt;/object&gt;</span>
+<span class="nt">&lt;/interface&gt;</span>
+</pre></div>
+</div>
+<p>Para carregar este arquivo em Python, precisamos de um objeto <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Builder.html#Gtk.Builder" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Builder</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Builder</span><span class="p">()</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_from_file</span><span class="p">(</span><span class="s2">&quot;example.glade&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A segunda linha carrega todos os objetos definidos em <em>example.glade</em> no objeto Builder.</p>
+<p>Também é possível carregar apenas alguns dos objetos. A linha a seguir adicionaria apenas os objetos (e seus objetos filhos) fornecidos na tupla.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># we don&#39;t really have two buttons here, this is just an example</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_objects_from_file</span><span class="p">(</span><span class="s2">&quot;example.glade&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;button1&quot;</span><span class="p">,</span> <span class="s2">&quot;button2&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Esses dois métodos também existem para o carregamento de uma string, em vez de um arquivo. Seus nomes correspondentes são <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Builder.html#Gtk.Builder.add_from_string" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Builder.add_from_string()</span></code></a> e <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Builder.html#Gtk.Builder.add_objects_from_string" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Builder.add_objects_from_string()</span></code></a> e eles simplesmente pegam uma string XML em vez de um nome de arquivo.</p>
+</div>
+<div class="section" id="accessing-widgets">
+<h2>20.2. Acessando Widgets<a class="headerlink" href="#accessing-widgets" title="Link permanente para este título">¶</a></h2>
+<p>Agora que a janela e o botão estão carregados, também queremos mostrá-los. Portanto, o método <code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Window.show_all()</span></code> deve ser chamado na janela. Mas como acessamos o objeto associado?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;window1&quot;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Cada widget pode ser recuperado do construtor pelo método <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Builder.html#Gtk.Builder.get_object" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Builder.get_object()</span></code></a> e pelo <em>id</em> do widget. É realmente <em>isso</em> simples.</p>
+<p>Também é possível obter uma lista de todos os objetos com</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">builder</span><span class="o">.</span><span class="n">get_objects</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connecting-signals">
+<h2>20.3. Conectando Sinais<a class="headerlink" href="#connecting-signals" title="Link permanente para este título">¶</a></h2>
+<p>O Glade também permite definir sinais que você pode conectar a manipuladores em seu código sem extrair todos os objetos do construtor e conectar-se aos sinais manualmente. A primeira coisa a fazer é declarar os nomes dos sinais no Glade. Para este exemplo, vamos agir quando a janela é fechada e quando o botão foi pressionado, então damos o nome “onDestroy” para o retorno de chamada manipulando o sinal “destroy” da janela e “onButtonPressed” para o retorno de chamada manipulando o “pressionado” sinal do botão. Agora o arquivo XML deve ficar assim.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;interface&gt;</span>
+  <span class="c">&lt;!-- interface-requires gtk+ 3.0 --&gt;</span>
+  <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkWindow&quot;</span> <span class="na">id=</span><span class="s">&quot;window1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;signal</span> <span class="na">name=</span><span class="s">&quot;destroy&quot;</span> <span class="na">handler=</span><span class="s">&quot;onDestroy&quot;</span> <span class="na">swapped=</span><span class="s">&quot;no&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;child&gt;</span>
+      <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkButton&quot;</span> <span class="na">id=</span><span class="s">&quot;button1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span> <span class="na">translatable=</span><span class="s">&quot;yes&quot;</span><span class="nt">&gt;</span>button<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;use_action_appearance&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;receives_default&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;use_action_appearance&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;signal</span> <span class="na">name=</span><span class="s">&quot;pressed&quot;</span> <span class="na">handler=</span><span class="s">&quot;onButtonPressed&quot;</span> <span class="na">swapped=</span><span class="s">&quot;no&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/object&gt;</span>
+    <span class="nt">&lt;/child&gt;</span>
+  <span class="nt">&lt;/object&gt;</span>
+<span class="nt">&lt;/interface&gt;</span>
+</pre></div>
+</div>
+<p>Agora temos que definir as funções do manipulador em nosso código. O <em>onDestroy</em> deve simplesmente resultar em uma chamada para <code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.main_quit()</span></code>. Quando o botão é pressionado, gostaríamos de imprimir a string “Hello World!”, Então definimos o manipulador da seguinte maneira</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Em seguida, temos que conectar os sinais e as funções do manipulador. A maneira mais fácil de fazer isso é definir um <em>dict</em> com um mapeamento dos nomes para os manipuladores e então passá-lo para o método <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Builder.html#Gtk.Builder.connect_signals" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Builder.connect_signals()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;onDestroy&quot;</span><span class="p">:</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">,</span>
+    <span class="s2">&quot;onButtonPressed&quot;</span><span class="p">:</span> <span class="n">hello</span>
+<span class="p">}</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">connect_signals</span><span class="p">(</span><span class="n">handlers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uma abordagem alternativa é criar uma classe que tenha métodos que sejam chamados como os sinais. Em nosso exemplo, o último snippet de código pode ser reescrito como:</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">Handler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">onDestroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">onButtonPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+
+<span class="n">builder</span><span class="o">.</span><span class="n">connect_signals</span><span class="p">(</span><span class="n">Handler</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="example">
+<h2>20.4. Exemplo<a class="headerlink" href="#example" title="Link permanente para este título">¶</a></h2>
+<p>O código final do exemplo</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">Handler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">onDestroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">onButtonPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Builder</span><span class="p">()</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_from_file</span><span class="p">(</span><span class="s2">&quot;builder_example.glade&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">connect_signals</span><span class="p">(</span><span class="n">Handler</span><span class="p">())</span>
+
+<span class="n">window</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;window1&quot;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="objects.html" class="btn btn-neutral float-right" title="21. Objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="drag_and_drop.html" class="btn btn-neutral" title="19. Arraste e solte" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright GNU Free Documentation License 1.3.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

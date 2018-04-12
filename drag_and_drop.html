@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>19. Arraste e solte &mdash; documentação Python GTK+ 3 Tutorial 3.4</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Buscar" href="search.html"/>
+    <link rel="top" title="documentação Python GTK+ 3 Tutorial 3.4" href="index.html"/>
+        <link rel="next" title="20. Glade e Gtk.Builder" href="builder.html"/>
+        <link rel="prev" title="18. Clipboard" href="clipboard.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python GTK+ 3 Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Instalação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2. Começando</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Noções básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">4. Como Lidar com Sequências de Caracteres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">5. Containers de Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">6. Label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entry.html">7. Entry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="button_widgets.html">8. Widgets de Botão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progressbar.html">9. Barra de Progresso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinner.html">10. Spinner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treeview.html">11. Widgets de Árvore e Lista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cellrenderers.html">12. CellRenderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="combobox.html">13. ComboBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconview.html">14. IconView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textview.html">15. Editor de Texto Multilinha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogs.html">16. Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popover.html">17. Popovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clipboard.html">18. Clipboard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">19. Arraste e solte</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#target-entries">19.1. Alvos de Entrada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drag-source-signals">19.2. Sinais de Origem do Arrasto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drag-destination-signals">19.3. Sinais de Destino do Arrasto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">19.4. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="builder.html">20. Glade e Gtk.Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">21. Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application.html">22. Aplicação</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Descontinuada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout-table.html">Tabela</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python GTK+ 3 Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>19. Arraste e solte</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/drag_and_drop.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="drag-and-drop">
+<h1>19. Arraste e solte<a class="headerlink" href="#drag-and-drop" title="Link permanente para este título">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">As versões do PyGObject &lt; 3.0.3 contêm um bug que não permite arrastar e soltar para funcionar corretamente. Portanto, uma versão do PyGObject &gt;= 3.0.3 é necessária para os exemplos a seguir funcionarem.</p>
+</div>
+<p>Configurar arrastar e soltar entre widgets consiste em selecionar uma fonte de arrasto (o widget do qual o usuário começa a arrastar) com o método <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.drag_source_set" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Widget.drag_source_set()</span></code></a>, selecionando um destino de arrasto (o widget que o usuário coloca em) com o método <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.drag_dest_set" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Widget.drag_dest_set()</span></code></a> e depois manipular os sinais relevantes em ambos os widgets.</p>
+<p>Em vez de usar <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.drag_source_set" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Widget.drag_source_set()</span></code></a> e <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.drag_dest_set" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Widget.drag_dest_set()</span></code></a> alguns widgets especializados requerem o uso de funções específicas (como <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TreeView.html#Gtk.TreeView" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TreeView</span></code></a> e <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/IconView.html#Gtk.IconView" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.IconView</span></code></a>).</p>
+<p>Um arrastar e soltar básico requer apenas que a fonte se conecte ao sinal “drag-data-get” e que o destino se conecte ao sinal “drag-data-received”. Coisas mais complexas, como áreas de queda específicas e ícones de arrastar personalizados, exigirão que você se conecte a <a class="reference internal" href="#drag-signals"><span class="std std-ref">sinais adicionais</span></a> e interaja com o objeto <code class="xref py py-class docutils literal notranslate"><span class="pre">Gdk.DragContext</span></code> que fornece.</p>
+<p>Para transferir dados entre a origem e o destino, você deve interagir com a variável <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/SelectionData.html#Gtk.SelectionData" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.SelectionData</span></code></a> fornecida no <a class="reference internal" href="#drag-signals"><span class="std std-ref">“drag-data-get”</span></a> e sinais de <a class="reference internal" href="#drag-signals"><span class="std std-ref">“drag-data-received”</span></a> usando os métodos get e set <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/SelectionData.html#Gtk.SelectionData" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.SelectionData</span></code></a>.</p>
+<div class="section" id="target-entries">
+<h2>19.1. Alvos de Entrada<a class="headerlink" href="#target-entries" title="Link permanente para este título">¶</a></h2>
+<p>Para permitir que a fonte de arrastar e o destino saibam quais dados estão recebendo e enviando, uma lista comum de <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TargetEntry.html#Gtk.TargetEntry" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TargetEntry's</span></code></a> é necessária. A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TargetEntry.html#Gtk.TargetEntry" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TargetEntry</span></code></a> descreve um dado que será enviado pela fonte de arrasto e recebido pelo destino do arrasto.</p>
+<p>Existem duas maneiras de adicionar <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TargetEntry.html#Gtk.TargetEntry" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TargetEntry's</span></code></a> a uma origem e destino. Se o arrastar e soltar for simples e cada entrada de destino for de um tipo diferente, você pode usar o grupo de métodos mencionado aqui <code class="xref py py-meth docutils literal notranslate"><span class="pre">&lt;Gtk.Widget.drag_source_add_text_targets&gt;()</span></code>.</p>
+<p>Se você precisar de mais de um tipo de dados ou quiser fazer coisas mais complexas com os dados, você precisará criar o <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TargetEntry.html#Gtk.TargetEntry" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TargetEntry's</span></code></a> usando o método <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TargetEntry.html#Gtk.TargetEntry.new" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.TargetEntry.new()</span></code></a>.</p>
+</div>
+<div class="section" id="drag-source-signals">
+<span id="drag-signals"></span><h2>19.2. Sinais de Origem do Arrasto<a class="headerlink" href="#drag-source-signals" title="Link permanente para este título">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="46%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Nome</th>
+<th class="head">Quando é emitido</th>
+<th class="head">Propósito comum</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>drag-begin</td>
+<td>Usuário inicia um arrasto</td>
+<td>Configurar ícone de arrastar</td>
+</tr>
+<tr class="row-odd"><td>drag-data-get</td>
+<td>Quando dados arrastados são solicitados pelo destino</td>
+<td>Transferir dados de arrastar da origem para o destino</td>
+</tr>
+<tr class="row-even"><td>drag-data-delete</td>
+<td>Quando um arrasto com a ação Gdk.DragAction.MOVE é concluído</td>
+<td>Excluir dados da fonte para completar o ‘movimento’</td>
+</tr>
+<tr class="row-odd"><td>drag-end</td>
+<td>Quando o arrasto estiver completo</td>
+<td>Desfazer qualquer coisa feita no drag-begin</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="drag-destination-signals">
+<h2>19.3. Sinais de Destino do Arrasto<a class="headerlink" href="#drag-destination-signals" title="Link permanente para este título">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="46%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Nome</th>
+<th class="head">Quando é emitido</th>
+<th class="head">Propósito comum</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>drag-motion</td>
+<td>O ícone de arrasto se move sobre uma área de soltar</td>
+<td>Permitir que apenas algumas áreas sejam soltas</td>
+</tr>
+<tr class="row-odd"><td>drag-drop</td>
+<td>O ícone é solto em uma área de arrasto</td>
+<td>Permitir que apenas algumas áreas sejam soltas</td>
+</tr>
+<tr class="row-even"><td>drag-data-received</td>
+<td>Quando dados arrastados são recebidos pelo destino</td>
+<td>Transferir dados de arrastar da origem para o destino</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example">
+<h2>19.4. Exemplo<a class="headerlink" href="#example" title="Link permanente para este título">¶</a></h2>
+<img alt="_images/drag_and_drop_example.png" src="_images/drag_and_drop_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span><span class="p">,</span> <span class="n">Gdk</span><span class="p">,</span> <span class="n">GdkPixbuf</span>
+
+<span class="p">(</span><span class="n">TARGET_ENTRY_TEXT</span><span class="p">,</span> <span class="n">TARGET_ENTRY_PIXBUF</span><span class="p">)</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="n">COLUMN_TEXT</span><span class="p">,</span> <span class="n">COLUMN_PIXBUF</span><span class="p">)</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">DRAG_ACTION</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">DragAction</span><span class="o">.</span><span class="n">COPY</span>
+
+<span class="k">class</span> <span class="nc">DragDropWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Drag and Drop Demo&quot;</span><span class="p">)</span>
+
+        <span class="n">vbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vbox</span><span class="p">)</span>
+
+        <span class="n">hbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">hbox</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconview</span> <span class="o">=</span> <span class="n">DragSourceIconView</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drop_area</span> <span class="o">=</span> <span class="n">DropArea</span><span class="p">()</span>
+
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iconview</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">drop_area</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">button_box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">button_box</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">image_button</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">RadioButton</span><span class="o">.</span><span class="n">new_with_label_from_widget</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
+            <span class="s2">&quot;Images&quot;</span><span class="p">)</span>
+        <span class="n">image_button</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;toggled&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_image_targets</span><span class="p">)</span>
+        <span class="n">button_box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">image_button</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">text_button</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">RadioButton</span><span class="o">.</span><span class="n">new_with_label_from_widget</span><span class="p">(</span><span class="n">image_button</span><span class="p">,</span>
+            <span class="s2">&quot;Text&quot;</span><span class="p">)</span>
+        <span class="n">text_button</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;toggled&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_text_targets</span><span class="p">)</span>
+        <span class="n">button_box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">text_button</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_image_targets</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_image_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">targets</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TargetList</span><span class="o">.</span><span class="n">new</span><span class="p">([])</span>
+        <span class="n">targets</span><span class="o">.</span><span class="n">add_image_targets</span><span class="p">(</span><span class="n">TARGET_ENTRY_PIXBUF</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">drop_area</span><span class="o">.</span><span class="n">drag_dest_set_target_list</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconview</span><span class="o">.</span><span class="n">drag_source_set_target_list</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_text_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drop_area</span><span class="o">.</span><span class="n">drag_dest_set_target_list</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconview</span><span class="o">.</span><span class="n">drag_source_set_target_list</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">drop_area</span><span class="o">.</span><span class="n">drag_dest_add_text_targets</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconview</span><span class="o">.</span><span class="n">drag_source_add_text_targets</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">DragSourceIconView</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">IconView</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">IconView</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_text_column</span><span class="p">(</span><span class="n">COLUMN_TEXT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_pixbuf_column</span><span class="p">(</span><span class="n">COLUMN_PIXBUF</span><span class="p">)</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">GdkPixbuf</span><span class="o">.</span><span class="n">Pixbuf</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="s2">&quot;Item 1&quot;</span><span class="p">,</span> <span class="s2">&quot;image-missing&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="s2">&quot;Item 2&quot;</span><span class="p">,</span> <span class="s2">&quot;help-about&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="s2">&quot;Item 3&quot;</span><span class="p">,</span> <span class="s2">&quot;edit-copy&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">enable_model_drag_source</span><span class="p">(</span><span class="n">Gdk</span><span class="o">.</span><span class="n">ModifierType</span><span class="o">.</span><span class="n">BUTTON1_MASK</span><span class="p">,</span> <span class="p">[],</span>
+            <span class="n">DRAG_ACTION</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;drag-data-get&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_drag_data_get</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_drag_data_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">drag_context</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="n">selected_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_selected_items</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">selected_iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span><span class="o">.</span><span class="n">get_iter</span><span class="p">(</span><span class="n">selected_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="n">TARGET_ENTRY_TEXT</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">selected_iter</span><span class="p">,</span> <span class="n">COLUMN_TEXT</span><span class="p">)</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">info</span> <span class="o">==</span> <span class="n">TARGET_ENTRY_PIXBUF</span><span class="p">:</span>
+            <span class="n">pixbuf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">selected_iter</span><span class="p">,</span> <span class="n">COLUMN_PIXBUF</span><span class="p">)</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">set_pixbuf</span><span class="p">(</span><span class="n">pixbuf</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">icon_name</span><span class="p">):</span>
+        <span class="n">pixbuf</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">IconTheme</span><span class="o">.</span><span class="n">get_default</span><span class="p">()</span><span class="o">.</span><span class="n">load_icon</span><span class="p">(</span><span class="n">icon_name</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">text</span><span class="p">,</span> <span class="n">pixbuf</span><span class="p">])</span>
+
+
+<span class="k">class</span> <span class="nc">DropArea</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Drop something on me!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drag_dest_set</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">DestDefaults</span><span class="o">.</span><span class="n">ALL</span><span class="p">,</span> <span class="p">[],</span> <span class="n">DRAG_ACTION</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;drag-data-received&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_drag_data_received</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_drag_data_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">drag_context</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span><span class="n">info</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="n">TARGET_ENTRY_TEXT</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received text: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">text</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">info</span> <span class="o">==</span> <span class="n">TARGET_ENTRY_PIXBUF</span><span class="p">:</span>
+            <span class="n">pixbuf</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_pixbuf</span><span class="p">()</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="n">pixbuf</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="n">pixbuf</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received pixbuf with width </span><span class="si">%s</span><span class="s2">px and height </span><span class="si">%s</span><span class="s2">px&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span>
+                <span class="n">height</span><span class="p">))</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">DragDropWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="builder.html" class="btn btn-neutral float-right" title="20. Glade e Gtk.Builder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clipboard.html" class="btn btn-neutral" title="18. Clipboard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright GNU Free Documentation License 1.3.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

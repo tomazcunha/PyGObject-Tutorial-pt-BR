@@ -1,0 +1,904 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>12. CellRenderers &mdash; documentação Python GTK+ 3 Tutorial 3.4</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Buscar" href="search.html"/>
+    <link rel="top" title="documentação Python GTK+ 3 Tutorial 3.4" href="index.html"/>
+        <link rel="next" title="13. ComboBox" href="combobox.html"/>
+        <link rel="prev" title="11. Widgets de Árvore e Lista" href="treeview.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python GTK+ 3 Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Instalação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2. Começando</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Noções básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">4. Como Lidar com Sequências de Caracteres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">5. Containers de Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">6. Label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entry.html">7. Entry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="button_widgets.html">8. Widgets de Botão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progressbar.html">9. Barra de Progresso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinner.html">10. Spinner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treeview.html">11. Widgets de Árvore e Lista</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">12. CellRenderers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cellrenderertext">12.1. CellRendererText</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">12.1.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cellrenderertoggle">12.2. CellRendererToggle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">12.2.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cellrendererpixbuf">12.3. CellRendererPixbuf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">12.3.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cellrenderercombo">12.4. CellRendererCombo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">12.4.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cellrendererprogress">12.5. CellRendererProgress</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">12.5.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cellrendererspin">12.6. CellRendererSpin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">12.6.1. Exemplo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="combobox.html">13. ComboBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconview.html">14. IconView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textview.html">15. Editor de Texto Multilinha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogs.html">16. Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popover.html">17. Popovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clipboard.html">18. Clipboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_and_drop.html">19. Arraste e solte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builder.html">20. Glade e Gtk.Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">21. Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application.html">22. Aplicação</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Descontinuada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout-table.html">Tabela</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python GTK+ 3 Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>12. CellRenderers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/cellrenderers.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cellrenderers">
+<span id="id1"></span><h1>12. CellRenderers<a class="headerlink" href="#cellrenderers" title="Link permanente para este título">¶</a></h1>
+<p>Os widgets <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRenderer.html#Gtk.CellRenderer" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRenderer</span></code></a> são usados para exibir informações dentro de widgets como <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TreeView.html#Gtk.TreeView" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TreeView</span></code></a> ou <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ComboBox.html#Gtk.ComboBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ComboBox</span></code></a>. Eles trabalham de perto com os widgets associados e são muito poderosos, com muitas opções de configuração para exibir uma grande quantidade de dados de diferentes maneiras. Há sete widgets <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRenderer.html#Gtk.CellRenderer" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRenderer</span></code></a> que podem ser usados para diferentes propósitos:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererText.html#Gtk.CellRendererText" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererText</span></code></a></li>
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererToggle.html#Gtk.CellRendererToggle" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererToggle</span></code></a></li>
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererPixbuf.html#Gtk.CellRendererPixbuf" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererPixbuf</span></code></a></li>
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererCombo.html#Gtk.CellRendererCombo" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererCombo</span></code></a></li>
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererProgress.html#Gtk.CellRendererProgress" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererProgress</span></code></a></li>
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererSpinner.html#Gtk.CellRendererSpinner" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererSpinner</span></code></a></li>
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererSpin.html#Gtk.CellRendererSpin" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererSpin</span></code></a></li>
+<li><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererAccel.html#Gtk.CellRendererAccel" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererAccel</span></code></a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="cellrenderertext">
+<h2>12.1. CellRendererText<a class="headerlink" href="#cellrenderertext" title="Link permanente para este título">¶</a></h2>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererText.html#Gtk.CellRendererText" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererText</span></code></a> processa um dado texto em sua célula, usando as informações de fonte, cor e estilo fornecidas por suas propriedades. O texto será reticulado se for muito longo e a propriedade “ellipsize” permitir.</p>
+<p>Por padrão, o texto em <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererText.html#Gtk.CellRendererText" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererText</span></code></a> widgets não é editável. Isso pode ser alterado, definindo o valor da propriedade “editable” como <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cell</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;editable&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Você pode então se conectar ao sinal “editado” e atualizar seu <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TreeModel.html#Gtk.TreeModel" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TreeModel</span></code></a> de acordo.</p>
+<div class="section" id="example">
+<h3>12.1.1. Exemplo<a class="headerlink" href="#example" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/cellrenderertext_example.png" src="_images/cellrenderertext_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">CellRendererTextWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CellRendererText Example&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Fedora&quot;</span><span class="p">,</span> <span class="s2">&quot;http://fedoraproject.org/&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Slackware&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.slackware.com/&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Sidux&quot;</span><span class="p">,</span> <span class="s2">&quot;http://sidux.com/&quot;</span><span class="p">])</span>
+
+        <span class="n">treeview</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeView</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">)</span>
+
+        <span class="n">renderer_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererText</span><span class="p">()</span>
+        <span class="n">column_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span> <span class="n">renderer_text</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_text</span><span class="p">)</span>
+
+        <span class="n">renderer_editabletext</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererText</span><span class="p">()</span>
+        <span class="n">renderer_editabletext</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;editable&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">column_editabletext</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Editable Text&quot;</span><span class="p">,</span>
+            <span class="n">renderer_editabletext</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_editabletext</span><span class="p">)</span>
+
+        <span class="n">renderer_editabletext</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;edited&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_edited</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">treeview</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">text_edited</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">CellRendererTextWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="cellrenderertoggle">
+<h2>12.2. CellRendererToggle<a class="headerlink" href="#cellrenderertoggle" title="Link permanente para este título">¶</a></h2>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererToggle.html#Gtk.CellRendererToggle" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererToggle</span></code></a> renderiza um botão de alternância em uma célula. O botão é desenhado como um botão de rádio ou de verificação, dependendo da propriedade “radio”. Quando ativado, emite o sinal “alternado”.</p>
+<p>Como um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererToggle.html#Gtk.CellRendererToggle" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererToggle</span></code></a> pode ter dois estados, ativos e não ativos, você provavelmente deseja vincular a propriedade “active” no renderizador de célula a um valor booleano no modelo, fazendo com que o botão de verificação reflita o estado do modelo.</p>
+<div class="section" id="id2">
+<h3>12.2.1. Exemplo<a class="headerlink" href="#id2" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/cellrenderertoggle_example.png" src="_images/cellrenderertoggle_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">CellRendererToggleWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CellRendererToggle Example&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Debian&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;OpenSuse&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Fedora&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+
+        <span class="n">treeview</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeView</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">)</span>
+
+        <span class="n">renderer_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererText</span><span class="p">()</span>
+        <span class="n">column_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span> <span class="n">renderer_text</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_text</span><span class="p">)</span>
+
+        <span class="n">renderer_toggle</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererToggle</span><span class="p">()</span>
+        <span class="n">renderer_toggle</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;toggled&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_cell_toggled</span><span class="p">)</span>
+
+        <span class="n">column_toggle</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Toggle&quot;</span><span class="p">,</span> <span class="n">renderer_toggle</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_toggle</span><span class="p">)</span>
+
+        <span class="n">renderer_radio</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererToggle</span><span class="p">()</span>
+        <span class="n">renderer_radio</span><span class="o">.</span><span class="n">set_radio</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">renderer_radio</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;toggled&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_cell_radio_toggled</span><span class="p">)</span>
+
+        <span class="n">column_radio</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Radio&quot;</span><span class="p">,</span> <span class="n">renderer_radio</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_radio</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">treeview</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_cell_toggled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">on_cell_radio_toggled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">selected_path</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreePath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">:</span>
+            <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">path</span> <span class="o">==</span> <span class="n">selected_path</span><span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">CellRendererToggleWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="cellrendererpixbuf">
+<h2>12.3. CellRendererPixbuf<a class="headerlink" href="#cellrendererpixbuf" title="Link permanente para este título">¶</a></h2>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererPixbuf.html#Gtk.CellRendererPixbuf" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererPixbuf</span></code></a> pode ser usado para renderizar uma imagem em uma célula. Ele permite renderizar um dado <code class="xref py py-class docutils literal notranslate"><span class="pre">Gdk.Pixbuf</span></code> (definido através da propriedade “pixbuf”) ou um ícone nomeado (configurado através da propriedade “icon-name”).</p>
+<div class="section" id="id3">
+<h3>12.3.1. Exemplo<a class="headerlink" href="#id3" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/cellrendererpixbuf_example.png" src="_images/cellrendererpixbuf_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">CellRendererPixbufWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CellRendererPixbuf Example&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;New&quot;</span><span class="p">,</span> <span class="s2">&quot;document-new&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="s2">&quot;document-open&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Save&quot;</span><span class="p">,</span> <span class="s2">&quot;document-save&quot;</span><span class="p">])</span>
+
+        <span class="n">treeview</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeView</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">)</span>
+
+        <span class="n">renderer_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererText</span><span class="p">()</span>
+        <span class="n">column_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span> <span class="n">renderer_text</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_text</span><span class="p">)</span>
+
+        <span class="n">renderer_pixbuf</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererPixbuf</span><span class="p">()</span>
+
+        <span class="n">column_pixbuf</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="n">renderer_pixbuf</span><span class="p">,</span> <span class="n">icon_name</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_pixbuf</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">treeview</span><span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">CellRendererPixbufWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="cellrenderercombo">
+<h2>12.4. CellRendererCombo<a class="headerlink" href="#cellrenderercombo" title="Link permanente para este título">¶</a></h2>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererCombo.html#Gtk.CellRendererCombo" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererCombo</span></code></a> processa texto em uma célula como <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererText.html#Gtk.CellRendererText" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererText</span></code></a> do qual é derivado. Mas enquanto o último oferece uma entrada simples para editar o texto, <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererCombo.html#Gtk.CellRendererCombo" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererCombo</span></code></a> oferece um widget <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ComboBox.html#Gtk.ComboBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ComboBox</span></code></a> para editar o texto. Os valores a serem exibidos na caixa de combinação são obtidos de <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TreeModel.html#Gtk.TreeModel" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TreeModel</span></code></a> especificado na propriedade “model”.</p>
+<p>O renderizador de célula de combinação toma o cuidado de adicionar um renderizador de célula de texto à caixa de combinação e o configura para exibir a coluna especificada por sua propriedade “text-column”.</p>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererCombo.html#Gtk.CellRendererCombo" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererCombo</span></code></a> pode operar em dois modos. Ele pode ser usado com e sem um widget associado <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Entry.html#Gtk.Entry" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Entry</span></code></a>, dependendo do valor da propriedade “has-entry”.</p>
+<div class="section" id="id4">
+<h3>12.4.1. Exemplo<a class="headerlink" href="#id4" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/cellrenderercombo_example.png" src="_images/cellrenderercombo_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">CellRendererComboWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CellRendererCombo Example&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="n">liststore_manufacturers</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">manufacturers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sony&quot;</span><span class="p">,</span> <span class="s2">&quot;LG&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Panasonic&quot;</span><span class="p">,</span> <span class="s2">&quot;Toshiba&quot;</span><span class="p">,</span> <span class="s2">&quot;Nokia&quot;</span><span class="p">,</span> <span class="s2">&quot;Samsung&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">manufacturers</span><span class="p">:</span>
+            <span class="n">liststore_manufacturers</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">item</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore_hardware</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore_hardware</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Television&quot;</span><span class="p">,</span> <span class="s2">&quot;Samsung&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore_hardware</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Mobile Phone&quot;</span><span class="p">,</span> <span class="s2">&quot;LG&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore_hardware</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;DVD Player&quot;</span><span class="p">,</span> <span class="s2">&quot;Sony&quot;</span><span class="p">])</span>
+
+        <span class="n">treeview</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeView</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">liststore_hardware</span><span class="p">)</span>
+
+        <span class="n">renderer_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererText</span><span class="p">()</span>
+        <span class="n">column_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span> <span class="n">renderer_text</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_text</span><span class="p">)</span>
+
+        <span class="n">renderer_combo</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererCombo</span><span class="p">()</span>
+        <span class="n">renderer_combo</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;editable&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">renderer_combo</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">liststore_manufacturers</span><span class="p">)</span>
+        <span class="n">renderer_combo</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;text-column&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">renderer_combo</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;has-entry&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">renderer_combo</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;edited&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_combo_changed</span><span class="p">)</span>
+
+        <span class="n">column_combo</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Combo&quot;</span><span class="p">,</span> <span class="n">renderer_combo</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_combo</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">treeview</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_combo_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore_hardware</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">CellRendererComboWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="cellrendererprogress">
+<h2>12.5. CellRendererProgress<a class="headerlink" href="#cellrendererprogress" title="Link permanente para este título">¶</a></h2>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererProgress.html#Gtk.CellRendererProgress" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererProgress</span></code></a> renderiza um valor numérico como uma barra de progresso em uma célula. Além disso, pode exibir um texto na parte superior da barra de progresso.</p>
+<p>O valor percentual da barra de progresso pode ser modificado alterando a propriedade “value”. Semelhante a <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ProgressBar.html#Gtk.ProgressBar" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ProgressBar</span></code></a>, você pode ativar o <em>modo de atividade</em> incrementando a propriedade “pulse” em vez da propriedade “value”.</p>
+<div class="section" id="id5">
+<h3>12.5.1. Exemplo<a class="headerlink" href="#id5" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/cellrendererprogress_example.png" src="_images/cellrendererprogress_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span><span class="p">,</span> <span class="n">GObject</span>
+
+<span class="k">class</span> <span class="nc">CellRendererProgressWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CellRendererProgress Example&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Sabayon&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Zenwalk&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;SimplyMepis&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+
+        <span class="n">treeview</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeView</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">)</span>
+
+        <span class="n">renderer_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererText</span><span class="p">()</span>
+        <span class="n">column_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span> <span class="n">renderer_text</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_text</span><span class="p">)</span>
+
+        <span class="n">renderer_progress</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererProgress</span><span class="p">()</span>
+        <span class="n">column_progress</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Progress&quot;</span><span class="p">,</span> <span class="n">renderer_progress</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inverted</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_progress</span><span class="p">)</span>
+
+        <span class="n">renderer_toggle</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererToggle</span><span class="p">()</span>
+        <span class="n">renderer_toggle</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;toggled&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_inverted_toggled</span><span class="p">)</span>
+        <span class="n">column_toggle</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Inverted&quot;</span><span class="p">,</span> <span class="n">renderer_toggle</span><span class="p">,</span>
+            <span class="n">active</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_toggle</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">treeview</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout_id</span> <span class="o">=</span> <span class="n">GObject</span><span class="o">.</span><span class="n">timeout_add</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_timeout</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_inverted_toggled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">on_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_data</span><span class="p">):</span>
+        <span class="n">new_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">new_value</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">iter_next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">reset_model</span><span class="p">()</span>
+            <span class="n">new_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_value</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">reset_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">:</span>
+            <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">get_iter_first</span><span class="p">()</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">CellRendererProgressWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="cellrendererspin">
+<h2>12.6. CellRendererSpin<a class="headerlink" href="#cellrendererspin" title="Link permanente para este título">¶</a></h2>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererSpin.html#Gtk.CellRendererSpin" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererSpin</span></code></a> processa o texto em uma célula como <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererText.html#Gtk.CellRendererText" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererText</span></code></a> do qual é derivado. Mas enquanto o último oferece uma entrada simples para editar o texto, <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererSpin.html#Gtk.CellRendererSpin" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererSpin</span></code></a> oferece um widget <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/SpinButton.html#Gtk.SpinButton" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.SpinButton</span></code></a>. Claro, isso significa que o texto deve ser analisado como um número de ponto flutuante.</p>
+<p>O intervalo do botão de rotação é obtido da propriedade de ajuste do renderizador de célula, que pode ser definido explicitamente ou mapeado para uma coluna no modelo de árvore, como todas as propriedades dos renderizadores de célula. <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRendererSpin.html#Gtk.CellRendererSpin" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRendererSpin</span></code></a> também possui propriedades para a taxa de subida e o número de dígitos a serem exibidos.</p>
+<div class="section" id="id6">
+<h3>12.6.1. Exemplo<a class="headerlink" href="#id6" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/cellrendererspin_example.png" src="_images/cellrendererspin_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">CellRendererSpinWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CellRendererSpin Example&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListStore</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Apples&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;Bananas&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+        <span class="n">treeview</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeView</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">)</span>
+
+        <span class="n">renderer_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererText</span><span class="p">()</span>
+        <span class="n">column_text</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Fruit&quot;</span><span class="p">,</span> <span class="n">renderer_text</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_text</span><span class="p">)</span>
+
+        <span class="n">renderer_spin</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CellRendererSpin</span><span class="p">()</span>
+        <span class="n">renderer_spin</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;edited&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_amount_edited</span><span class="p">)</span>
+        <span class="n">renderer_spin</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;editable&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">adjustment</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Adjustment</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">renderer_spin</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="s2">&quot;adjustment&quot;</span><span class="p">,</span> <span class="n">adjustment</span><span class="p">)</span>
+
+        <span class="n">column_spin</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">TreeViewColumn</span><span class="p">(</span><span class="s2">&quot;Amount&quot;</span><span class="p">,</span> <span class="n">renderer_spin</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">treeview</span><span class="o">.</span><span class="n">append_column</span><span class="p">(</span><span class="n">column_spin</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">treeview</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_amount_edited</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">liststore</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">CellRendererSpinWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="combobox.html" class="btn btn-neutral float-right" title="13. ComboBox" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="treeview.html" class="btn btn-neutral" title="11. Widgets de Árvore e Lista" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright GNU Free Documentation License 1.3.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
