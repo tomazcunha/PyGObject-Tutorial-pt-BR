@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Label &mdash; documentação Python GTK+ 3 Tutorial 3.4</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Buscar" href="search.html"/>
+    <link rel="top" title="documentação Python GTK+ 3 Tutorial 3.4" href="index.html"/>
+        <link rel="next" title="7. Entry" href="entry.html"/>
+        <link rel="prev" title="5. Containers de Layout" href="layout.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python GTK+ 3 Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Instalação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2. Começando</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Noções básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">4. Como Lidar com Sequências de Caracteres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">5. Containers de Layout</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Label</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">6.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entry.html">7. Entry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="button_widgets.html">8. Widgets de Botão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progressbar.html">9. Barra de Progresso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinner.html">10. Spinner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treeview.html">11. Widgets de Árvore e Lista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cellrenderers.html">12. CellRenderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="combobox.html">13. ComboBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconview.html">14. IconView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textview.html">15. Editor de Texto Multilinha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogs.html">16. Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popover.html">17. Popovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clipboard.html">18. Clipboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_and_drop.html">19. Arraste e solte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builder.html">20. Glade e Gtk.Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">21. Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application.html">22. Aplicação</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Descontinuada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout-table.html">Tabela</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python GTK+ 3 Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>6. Label</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/label.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="label">
+<h1>6. Label<a class="headerlink" href="#label" title="Link permanente para este título">¶</a></h1>
+<p>Os rótulos são o principal método de colocar texto não editável nas janelas, por exemplo, para colocar um título ao lado de um widget <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Entry.html#Gtk.Entry" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Entry</span></code></a>. Você pode especificar o texto no construtor, ou mais tarde com os métodos <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_text" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_text()</span></code></a> ou <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_markup" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_markup()</span></code></a>.</p>
+<p>A largura da etiqueta será ajustada automaticamente. Você pode produzir rótulos de várias linhas colocando as quebras de linha (“\n”) na sequência de rótulos.</p>
+<p>Os rótulos podem ser feitos selecionáveis com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_selectable" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_selectable()</span></code></a>. Rótulos selecionáveis permitem que o usuário copie o conteúdo do rótulo para a área de transferência. Somente os rótulos que contêm informações úteis para copiar, como mensagens de erro, devem ser selecionáveis.</p>
+<p>O texto do rótulo pode ser justificado usando o método <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_justify" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_justify()</span></code></a>. O widget também é capaz de quebra automática de palavras, que pode ser ativado com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_line_wrap" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_line_wrap()</span></code></a>.</p>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Label</span></code></a> suporta algumas formatações simples, por exemplo, permitindo que você crie algum texto em negrito, colorido ou maior. Você pode fazer isso fornecendo uma string para <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_markup" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_markup()</span></code></a>, usando a sintaxe de marcação do Pango <a class="footnote-reference" href="#pango" id="id1">[1]</a>. Por exemplo, <code class="docutils literal notranslate"><span class="pre">&lt;b&gt;texto</span> <span class="pre">em</span> <span class="pre">negrito&lt;/b&gt;</span> <span class="pre">e</span> <span class="pre">&lt;s&gt;texto</span> <span class="pre">tachado&lt;/s&gt;</span></code>. Além disso, <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Label</span></code></a> suporta hiperlinks clicáveis. A marcação para links é emprestada do HTML, usando os atributos a com href e title. O GTK+ renderiza links semelhantes ao modo como aparecem nos navegadores da web, com texto colorido e sublinhado. O atributo de título é exibido como uma dica de ferramenta no link.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">label</span><span class="o">.</span><span class="n">set_markup</span><span class="p">(</span><span class="s2">&quot;Go to &lt;a href=</span><span class="se">\&quot;</span><span class="s2">http://www.gtk.org</span><span class="se">\&quot;</span><span class="s2"> &quot;</span>
+                 <span class="s2">&quot;title=</span><span class="se">\&quot;</span><span class="s2">Our website</span><span class="se">\&quot;</span><span class="s2">&gt;GTK+ website&lt;/a&gt; for more&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Os rótulos podem conter <em>mnemônicos</em>. Os mnemônicos são caracteres sublinhados no rótulo, usados para navegação pelo teclado. Os mnemônicos são criados fornecendo uma string com um sublinhado antes do caractere mnemônico, como “_File”, para as funções <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.new_with_mnemonic" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.new_with_mnemonic()</span></code></a> ou <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_text_with_mnemonic" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_text_with_mnemonic()</span></code></a>. Os mnemônicos ativam automaticamente qualquer widget ativável em que o rótulo esteja dentro, como um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Button.html#Gtk.Button" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Button</span></code></a>; se o rótulo não estiver dentro do widget de destino do mnemônico, você deve informar o rótulo sobre o destino usando <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label.set_mnemonic_widget" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Label.set_mnemonic_widget()</span></code></a>.</p>
+<div class="section" id="example">
+<h2>6.1. Exemplo<a class="headerlink" href="#example" title="Link permanente para este título">¶</a></h2>
+<img alt="_images/label_example.png" src="_images/label_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">LabelWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Label Example&quot;</span><span class="p">)</span>
+        
+        <span class="n">hbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">set_homogeneous</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">vbox_left</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">vbox_left</span><span class="o">.</span><span class="n">set_homogeneous</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">vbox_right</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">vbox_right</span><span class="o">.</span><span class="n">set_homogeneous</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">vbox_left</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">vbox_right</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;This is a normal label&quot;</span><span class="p">)</span>
+        <span class="n">vbox_left</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">()</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;This is a left-justified label.</span><span class="se">\n</span><span class="s2">With multiple lines.&quot;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_justify</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Justification</span><span class="o">.</span><span class="n">LEFT</span><span class="p">)</span>
+        <span class="n">vbox_left</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
+            <span class="s2">&quot;This is a right-justified label.</span><span class="se">\n</span><span class="s2">With multiple lines.&quot;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_justify</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Justification</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">)</span>
+        <span class="n">vbox_left</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;This is an example of a line-wrapped label.  It &quot;</span>
+                          <span class="s2">&quot;should not be taking up the entire             &quot;</span>
+                          <span class="s2">&quot;width allocated to it, but automatically &quot;</span>
+                          <span class="s2">&quot;wraps the words to fit.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                          <span class="s2">&quot;     It supports multiple paragraphs correctly, &quot;</span>
+                          <span class="s2">&quot;and  correctly   adds &quot;</span>
+                          <span class="s2">&quot;many          extra  spaces. &quot;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_line_wrap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">vbox_right</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;This is an example of a line-wrapped, filled label. &quot;</span>
+                          <span class="s2">&quot;It should be taking &quot;</span>
+                          <span class="s2">&quot;up the entire              width allocated to it.  &quot;</span>
+                          <span class="s2">&quot;Here is a sentence to prove &quot;</span>
+                          <span class="s2">&quot;my point.  Here is another sentence. &quot;</span>
+                          <span class="s2">&quot;Here comes the sun, do de do de do.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                          <span class="s2">&quot;    This is a new paragraph.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                          <span class="s2">&quot;    This is another newer, longer, better &quot;</span>
+                          <span class="s2">&quot;paragraph.  It is coming to an end, &quot;</span>
+                          <span class="s2">&quot;unfortunately.&quot;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_line_wrap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_justify</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Justification</span><span class="o">.</span><span class="n">FILL</span><span class="p">)</span>
+        <span class="n">vbox_right</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">()</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_markup</span><span class="p">(</span><span class="s2">&quot;Text can be &lt;small&gt;small&lt;/small&gt;, &lt;big&gt;big&lt;/big&gt;, &quot;</span>
+                         <span class="s2">&quot;&lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt; and even point to &quot;</span>
+                         <span class="s2">&quot;somewhere in the &lt;a href=</span><span class="se">\&quot;</span><span class="s2">http://www.gtk.org</span><span class="se">\&quot;</span><span class="s2"> &quot;</span>
+                         <span class="s2">&quot;title=</span><span class="se">\&quot;</span><span class="s2">Click to find out more</span><span class="se">\&quot;</span><span class="s2">&gt;internets&lt;/a&gt;.&quot;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_line_wrap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">vbox_left</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="o">.</span><span class="n">new_with_mnemonic</span><span class="p">(</span>
+            <span class="s2">&quot;_Press Alt + P to select button to the right&quot;</span><span class="p">)</span>
+        <span class="n">vbox_left</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_selectable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">button</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Click at your own risk&quot;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_mnemonic_widget</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+        <span class="n">vbox_right</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">hbox</span><span class="p">)</span>
+
+<span class="n">window</span> <span class="o">=</span> <span class="n">LabelWindow</span><span class="p">()</span>        
+<span class="n">window</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<table class="docutils footnote" frame="void" id="pango" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Pango Markup Syntax, <a class="reference external" href="http://developer.gnome.org/pango/stable/PangoMarkupFormat.html">http://developer.gnome.org/pango/stable/PangoMarkupFormat.html</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="entry.html" class="btn btn-neutral float-right" title="7. Entry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="layout.html" class="btn btn-neutral" title="5. Containers de Layout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright GNU Free Documentation License 1.3.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

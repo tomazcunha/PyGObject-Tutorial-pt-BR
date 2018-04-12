@@ -1,0 +1,156 @@
+Button Widgets
+==============
+
+Button
+------
+
+The Button widget is another commonly used widget. It is generally used to
+attach a function that is called when the button is pressed.
+
+The :class:`Gtk.Button` widget can hold any valid child widget. That is it can
+hold most any other standard :class:`Gtk.Widget`. The most commonly used child
+is the :class:`Gtk.Label`.
+
+Usually, you want to connect to the button's "clicked" signal which is emitted
+when the button has been pressed and released.
+
+Example
+^^^^^^^
+
+.. image:: ../images/button_example.png
+
+.. literalinclude:: ../examples/button_example.py
+    :linenos:
+
+ToggleButton
+------------
+
+A :class:`Gtk.ToggleButton` is very similar to a normal :class:`Gtk.Button`,
+but when clicked they remain activated, or pressed, until clicked again.
+When the state of the button is changed, the "toggled" signal is emitted.
+
+To retrieve the state of the :class:`Gtk.ToggleButton`, you can use the
+:meth:`Gtk.ToggleButton.get_active` method. This returns ``True`` if the button
+is "down". You can also set the toggle button's state, with
+:meth:`Gtk.ToggleButton.set_active`. Note that, if you do this, and the state
+actually changes, it causes the "toggled" signal to be emitted.
+
+Example
+^^^^^^^
+
+.. image:: ../images/togglebutton_example.png
+
+.. literalinclude:: ../examples/togglebutton_example.py
+    :linenos:
+
+CheckButton
+-----------
+:class:`Gtk.CheckButton` inherits from :class:`Gtk.ToggleButton`. The only real
+difference between the two is :class:`Gtk.CheckButton`'s appearance.
+A :class:`Gtk.CheckButton` places a discrete :class:`Gtk.ToggleButton` next to
+a widget, (usually a :class:`Gtk.Label`).
+The "toggled" signal, :meth:`Gtk.ToggleButton.set_active` and
+:meth:`Gtk.ToggleButton.get_active` are inherited.
+
+RadioButton
+-----------
+Like checkboxes, radio buttons also inherit from :class:`Gtk.ToggleButton`,
+but these work in groups, and only one :class:`Gtk.RadioButton` in a group can
+be selected at any one time. Therefore, a :class:`Gtk.RadioButton` is one way
+of giving the user a choice from many options.
+
+Radio buttons can be created with one of the static methods
+:meth:`Gtk.RadioButton.new_from_widget`,
+:meth:`Gtk.RadioButton.new_with_label_from_widget` or
+:meth:`Gtk.RadioButton.new_with_mnemonic_from_widget`.
+The first radio button in a group will be created passing ``None`` as the
+*group* argument. In subsequent calls, the group you
+wish to add this button to should be passed as an argument.
+
+When first run, the first radio button in the group will be active.
+This can be changed by calling :meth:`Gtk.ToggleButton.set_active` with ``True``
+as first argument.
+
+Changing a :class:`Gtk.RadioButton`'s widget group after its creation can be
+achieved by calling :meth:`Gtk.RadioButton.join_group`.
+
+Example
+^^^^^^^
+
+.. image:: ../images/radiobutton_example.png
+
+.. literalinclude:: ../examples/radiobutton_example.py
+    :linenos:
+
+LinkButton
+----------
+A :class:`Gtk.LinkButton` is a :class:`Gtk.Button` with a hyperlink, similar
+to the one used by web browsers, which triggers an action when clicked. It is
+useful to show quick links to resources.
+
+The URI bound to a :class:`Gtk.LinkButton` can be set specifically using
+:meth:`Gtk.LinkButton.set_uri`, and retrieved using :meth:`Gtk.LinkButton.get_uri`.
+
+Example
+^^^^^^^
+
+.. image:: ../images/linkbutton_example.png
+
+.. literalinclude:: ../examples/linkbutton_example.py
+    :linenos:
+
+SpinButton
+----------
+A :class:`Gtk.SpinButton` is an ideal way to allow the user to set the value of
+some attribute. Rather than having to directly type a number into a
+:class:`Gtk.Entry`, :class:`Gtk.SpinButton` allows the user to click on one of
+two arrows to increment or decrement the displayed value. A value can still be
+typed in, with the bonus that it can be checked to ensure it is in a given range. 
+The main properties of a :class:`Gtk.SpinButton` are set through
+:class:`Gtk.Adjustment`.
+
+To change the value that :class:`Gtk.SpinButton` is showing, use
+:meth:`Gtk.SpinButton.set_value`. The value entered can either be an integer or
+float, depending on your requirements, use :meth:`Gtk.SpinButton.get_value` or
+:meth:`Gtk.SpinButton.get_value_as_int`, respectively.
+
+When you allow the displaying of float values in the spin button, you may wish
+to adjust the number of decimal spaces displayed by calling
+:meth:`Gtk.SpinButton.set_digits`.
+
+By default, :class:`Gtk.SpinButton` accepts textual data. If you wish to limit
+this to numerical values only, call :meth:`Gtk.SpinButton.set_numeric` with ``True``
+as argument.
+
+We can also adjust the update policy of :class:`Gtk.SpinButton`. There are two
+options here; by default the spin button updates the value even if the data
+entered is invalid. Alternatively, we can set the policy to only update when the
+value entered is valid by calling :meth:`Gtk.SpinButton.set_update_policy`.
+
+Example
+^^^^^^^
+
+.. image:: ../images/spinbutton_example.png
+
+.. literalinclude:: ../examples/spinbutton_example.py
+    :linenos:
+
+Switch
+------
+A :class:`Gtk.Switch` is a widget that has two states: on or off. The user can
+control which state should be active by clicking the empty area, or by dragging
+the handle.
+
+You shouldn't use the "activate" signal on the Gtk.Switch which is an action
+signal and emitting it causes the switch to animate. Applications should never
+connect to this signal, but use the "notify::active" signal, see the example
+here below.
+
+Example
+^^^^^^^
+
+.. image:: ../images/switch_example.png
+
+.. literalinclude:: ../examples/switch_example.py
+    :linenos:
+

@@ -1,0 +1,1147 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Containers de Layout &mdash; documentação Python GTK+ 3 Tutorial 3.4</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Buscar" href="search.html"/>
+    <link rel="top" title="documentação Python GTK+ 3 Tutorial 3.4" href="index.html"/>
+        <link rel="next" title="6. Label" href="label.html"/>
+        <link rel="prev" title="4. Como Lidar com Sequências de Caracteres" href="unicode.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python GTK+ 3 Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Instalação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2. Começando</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Noções básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">4. Como Lidar com Sequências de Caracteres</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Containers de Layout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#boxes">5.1. Boxes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">5.1.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#grid">5.2. Grid</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.2.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#listbox">5.3. ListBox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.3.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#stack-and-stackswitcher">5.4. Stack and StackSwitcher</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.4.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#headerbar">5.5. HeaderBar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.5.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flowbox">5.6. FlowBox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.6.1. Exemplo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notebook">5.7. Notebook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.7.1. Exemplo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">6. Label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entry.html">7. Entry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="button_widgets.html">8. Widgets de Botão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progressbar.html">9. Barra de Progresso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinner.html">10. Spinner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treeview.html">11. Widgets de Árvore e Lista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cellrenderers.html">12. CellRenderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="combobox.html">13. ComboBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconview.html">14. IconView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textview.html">15. Editor de Texto Multilinha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogs.html">16. Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popover.html">17. Popovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clipboard.html">18. Clipboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_and_drop.html">19. Arraste e solte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builder.html">20. Glade e Gtk.Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">21. Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application.html">22. Aplicação</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Descontinuada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout-table.html">Tabela</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python GTK+ 3 Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>5. Containers de Layout</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/layout.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="layout-containers">
+<span id="layout"></span><h1>5. Containers de Layout<a class="headerlink" href="#layout-containers" title="Link permanente para este título">¶</a></h1>
+<p>Enquanto muitos toolkits GUI exigem que você coloque precisamente widgets em uma janela, usando posicionamento absoluto, o GTK+ usa uma abordagem diferente. Em vez de especificar a posição e o tamanho de cada widget na janela, você pode organizar seus widgets em linhas, colunas e/ou tabelas. O tamanho da sua janela pode ser determinado automaticamente, com base nos tamanhos dos widgets que ela contém. E os tamanhos dos widgets, por sua vez, são determinados pela quantidade de texto que eles contêm, ou os tamanhos mínimo e máximo que você especifica, e/ou como você solicitou que o espaço disponível seja compartilhado entre conjuntos de widgets. Você pode aperfeiçoar seu layout especificando a distância de preenchimento e os valores de centralização para cada um de seus widgets. O GTK+ usa todas essas informações para redimensionar e reposicionar tudo de maneira sensata e suave quando o usuário manipula a janela.</p>
+<p>O GTK+ organiza widgets hierarquicamente, usando <em>containers</em>. Eles são invisíveis para o usuário final e são inseridos em uma janela ou colocados entre si para os componentes do layout. Existem dois tipos de contêineres: contêineres filho único, todos descendentes de <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Bin.html#Gtk.Bin" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Bin</span></code></a> e contêineres com vários filhos, que são descendentes de <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Container.html#Gtk.Container" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Container</span></code></a>. Os mais usados são caixas verticais ou horizontais (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Box</span></code></a>) e grades (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Grid.html#Gtk.Grid" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Grid</span></code></a>).</p>
+<div class="section" id="boxes">
+<h2>5.1. Boxes<a class="headerlink" href="#boxes" title="Link permanente para este título">¶</a></h2>
+<p>Caixas são contêineres invisíveis nos quais podemos empacotar nossos widgets. Ao agrupar widgets em uma caixa horizontal, os objetos são inseridos horizontalmente da esquerda para a direita ou da direita para a esquerda, dependendo se <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box.pack_start" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Box.pack_start()</span></code></a> ou <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box.pack_end" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Box.pack_end()</span></code></a> for usado. Em uma caixa vertical, os widgets são empacotados de cima para baixo ou vice-versa. Você pode usar qualquer combinação de caixas dentro ou ao lado de outras caixas para criar o efeito desejado.</p>
+<div class="section" id="example">
+<h3>5.1.1. Exemplo<a class="headerlink" href="#example" title="Link permanente para este título">¶</a></h3>
+<p>Vamos dar uma olhada em uma versão ligeiramente modificada do exemplo estendido com dois botões.</p>
+<img alt="_images/layout_box_example.png" src="_images/layout_box_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">MyWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">button1</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button1</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_button1_clicked</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">button2</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Goodbye&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_button2_clicked</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_button1_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_button2_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye&quot;</span><span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">MyWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Primeiro, criamos um contêiner de caixa orientado horizontalmente, onde 6 pixels são colocados entre os filhos. Esta caixa se torna o filho da janela de nível superior.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Posteriormente, adicionamos dois botões diferentes ao contêiner da caixa.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">button1</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button1</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_button1_clicked</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">button2</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Goodbye&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_button2_clicked</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Enquanto com os widgets <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box.pack_start" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Box.pack_start()</span></code></a> estão posicionados da esquerda para a direita, <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box.pack_end" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Box.pack_end()</span></code></a> os posiciona da direita para a esquerda.</p>
+</div>
+</div>
+<div class="section" id="grid">
+<span id="layout-grid"></span><h2>5.2. Grid<a class="headerlink" href="#grid" title="Link permanente para este título">¶</a></h2>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Grid.html#Gtk.Grid" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Grid</span></code></a> é um contêiner que organiza seus widgets filhos em linhas e colunas, mas você não precisa especificar as dimensões no construtor. As crianças são adicionadas usando <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Grid.html#Gtk.Grid.attach" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Grid.attach()</span></code></a>. Eles podem abranger várias linhas ou colunas. O método <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Grid.html#Gtk.Grid.attach" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Grid.attach()</span></code></a> usa cinco parâmetros:</p>
+<ol class="arabic simple">
+<li>O parâmetro <code class="docutils literal notranslate"><span class="pre">child</span></code> é o <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a> para adicionar.</li>
+<li>`` left`` é o número da coluna para anexar o lado esquerdo de <code class="docutils literal notranslate"><span class="pre">child</span></code> em.</li>
+<li>`` top`` indica o número da linha para anexar o lado superior do <code class="docutils literal notranslate"><span class="pre">child</span></code>.</li>
+<li>`` width`` e <code class="docutils literal notranslate"><span class="pre">height</span></code> indicam o número de colunas que o <code class="docutils literal notranslate"><span class="pre">child</span></code> irá abranger, e o número de linhas que o <code class="docutils literal notranslate"><span class="pre">child</span></code> irá abranger, respectivamente.</li>
+</ol>
+<p>Também é possível adicionar um child ao lado de um child existente, usando <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Grid.html#Gtk.Grid.attach_next_to" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Grid.attach_next_to()</span></code></a>, que também usa cinco parâmetros:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">child</span></code> é o <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a> para adicionar, como acima.</li>
+<li><code class="docutils literal notranslate"><span class="pre">sibling</span></code> é um widget filho existente de <code class="docutils literal notranslate"><span class="pre">self</span></code> (uma instância <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Grid.html#Gtk.Grid" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Grid</span></code></a>) ou <code class="docutils literal notranslate"><span class="pre">None</span></code>. O widget <code class="docutils literal notranslate"><span class="pre">child</span></code> será colocado próximo ao <code class="docutils literal notranslate"><span class="pre">sibling</span></code>, ou se <code class="docutils literal notranslate"><span class="pre">sibling</span></code> for <code class="docutils literal notranslate"><span class="pre">None</span></code>, no início ou no final da grade.</li>
+<li><code class="docutils literal notranslate"><span class="pre">side</span></code> é um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/enums.html#Gtk.PositionType" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.PositionType</span></code></a> indicando o lado do <code class="docutils literal notranslate"><span class="pre">sibling</span></code> que <code class="docutils literal notranslate"><span class="pre">child</span></code> é posicionado ao lado de.</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> e <code class="docutils literal notranslate"><span class="pre">height</span></code> indicam o número de colunas e linhas que o widget <code class="docutils literal notranslate"><span class="pre">child</span></code> abrangerá, respectivamente.</li>
+</ol>
+<p>Finalmente, <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Grid.html#Gtk.Grid" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Grid</span></code></a> pode ser usado como <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Box</span></code></a> usando apenas <code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Grid.add()</span></code>, que colocará as crianças uma ao lado da outra na direção determinada por a propriedade “orientação” (o padrão é <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/enums.html#Gtk.Orientation.HORIZONTAL" title="(em Gtk 3.0 v3.0)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Gtk.Orientation.HORIZONTAL</span></code></a>).</p>
+<div class="section" id="id1">
+<h3>5.2.1. Exemplo<a class="headerlink" href="#id1" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/layout_grid_example.png" src="_images/layout_grid_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">GridWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Grid Example&quot;</span><span class="p">)</span>
+
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Grid</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+
+        <span class="n">button1</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Button 1&quot;</span><span class="p">)</span>
+        <span class="n">button2</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Button 2&quot;</span><span class="p">)</span>
+        <span class="n">button3</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Button 3&quot;</span><span class="p">)</span>
+        <span class="n">button4</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Button 4&quot;</span><span class="p">)</span>
+        <span class="n">button5</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Button 5&quot;</span><span class="p">)</span>
+        <span class="n">button6</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Button 6&quot;</span><span class="p">)</span>
+
+        <span class="n">grid</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">button1</span><span class="p">)</span>
+        <span class="n">grid</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">button2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">grid</span><span class="o">.</span><span class="n">attach_next_to</span><span class="p">(</span><span class="n">button3</span><span class="p">,</span> <span class="n">button1</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">PositionType</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">grid</span><span class="o">.</span><span class="n">attach_next_to</span><span class="p">(</span><span class="n">button4</span><span class="p">,</span> <span class="n">button3</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">PositionType</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">grid</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">button5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">grid</span><span class="o">.</span><span class="n">attach_next_to</span><span class="p">(</span><span class="n">button6</span><span class="p">,</span> <span class="n">button5</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">PositionType</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">GridWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="listbox">
+<h2>5.3. ListBox<a class="headerlink" href="#listbox" title="Link permanente para este título">¶</a></h2>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ListBox.html#Gtk.ListBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ListBox</span></code></a> é um contêiner vertical que contém <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ListBoxRow.html#Gtk.ListBoxRow" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ListBoxRow</span></code></a> filhos. Essas linhas podem ser classificadas e filtradas dinamicamente e os cabeçalhos podem ser adicionados dinamicamente, dependendo do conteúdo da linha. Também permite navegação e seleção de teclado e mouse como uma lista típica.</p>
+<p>Usar <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ListBox.html#Gtk.ListBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ListBox</span></code></a> é muitas vezes uma alternativa para <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TreeView.html#Gtk.TreeView" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.TreeView</span></code></a>, especialmente quando o conteúdo da lista tem um layout mais complicado do que o permitido por um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/CellRenderer.html#Gtk.CellRenderer" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.CellRenderer</span></code></a>, ou quando o conteúdo é interativo (ou seja, tem um botão).</p>
+<p>Embora um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ListBox.html#Gtk.ListBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ListBox</span></code></a> deva ter apenas <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ListBoxRow.html#Gtk.ListBoxRow" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ListBoxRow</span></code></a> filhos, você pode adicionar qualquer tipo de widget a ele via <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Container.html#Gtk.Container.add" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Container.add()</span></code></a> e um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ListBoxRow.html#Gtk.ListBoxRow" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ListBoxRow</span></code></a> widget será automaticamente inserido entre a lista e o widget.</p>
+<div class="section" id="id2">
+<h3>5.3.1. Exemplo<a class="headerlink" href="#id2" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/listbox_example.png" src="_images/listbox_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">ListBoxRowWithData</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">ListBoxRow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">ListBoxRow</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">ListBoxWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;ListBox Demo&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_border_width</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">box_outer</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">box_outer</span><span class="p">)</span>
+
+        <span class="n">listbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListBox</span><span class="p">()</span>
+        <span class="n">listbox</span><span class="o">.</span><span class="n">set_selection_mode</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">SelectionMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span>
+        <span class="n">box_outer</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">listbox</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">row</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListBoxRow</span><span class="p">()</span>
+        <span class="n">hbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">hbox</span><span class="p">)</span>
+        <span class="n">vbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">vbox</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">label1</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Automatic Date &amp; Time&quot;</span><span class="p">,</span> <span class="n">xalign</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">label2</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Requires internet access&quot;</span><span class="p">,</span> <span class="n">xalign</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">switch</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Switch</span><span class="p">()</span>
+        <span class="n">switch</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">valign</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Align</span><span class="o">.</span><span class="n">CENTER</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">switch</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">listbox</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+        <span class="n">row</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListBoxRow</span><span class="p">()</span>
+        <span class="n">hbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">hbox</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Enable Automatic Update&quot;</span><span class="p">,</span> <span class="n">xalign</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CheckButton</span><span class="p">()</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">check</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">listbox</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+        <span class="n">row</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListBoxRow</span><span class="p">()</span>
+        <span class="n">hbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">hbox</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Date Format&quot;</span><span class="p">,</span> <span class="n">xalign</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">combo</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ComboBoxText</span><span class="p">()</span>
+        <span class="n">combo</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;24-hour&quot;</span><span class="p">)</span>
+        <span class="n">combo</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;AM/PM&quot;</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">hbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">combo</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">listbox</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+        <span class="n">listbox_2</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ListBox</span><span class="p">()</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="s1">&#39;This is a sorted ListBox Fail&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">listbox_2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ListBoxRowWithData</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+
+        <span class="k">def</span> <span class="nf">sort_func</span><span class="p">(</span><span class="n">row_1</span><span class="p">,</span> <span class="n">row_2</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">notify_destroy</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">row_1</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">row_2</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">filter_func</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">notify_destroy</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="s1">&#39;Fail&#39;</span> <span class="k">else</span> <span class="kc">True</span>
+
+        <span class="n">listbox_2</span><span class="o">.</span><span class="n">set_sort_func</span><span class="p">(</span><span class="n">sort_func</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">listbox_2</span><span class="o">.</span><span class="n">set_filter_func</span><span class="p">(</span><span class="n">filter_func</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">listbox_2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;row-activated&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">widget</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+        
+        <span class="n">box_outer</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">listbox_2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">listbox_2</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">ListBoxWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="stack-and-stackswitcher">
+<h2>5.4. Stack and StackSwitcher<a class="headerlink" href="#stack-and-stackswitcher" title="Link permanente para este título">¶</a></h2>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Stack</span></code></a> é um contêiner que mostra apenas um de seus filhos por vez. Em contraste com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Notebook.html#Gtk.Notebook" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Notebook</span></code></a>, <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Stack</span></code></a> não fornece um meio para os usuários alterarem o filho visível. Em vez disso, o widget <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/StackSwitcher.html#Gtk.StackSwitcher" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.StackSwitcher</span></code></a> pode ser usado com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Stack</span></code></a> para fornecer essa funcionalidade.</p>
+<p>Transições entre páginas podem ser animadas como slides ou fades. Isso pode ser controlado com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack.set_transition_type" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Stack.set_transition_type()</span></code></a>. Essas animações respeitam a configuração “gtk-enable-animations”.</p>
+<p>A velocidade de transição pode ser ajustada com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack.set_transition_duration" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Stack.set_transition_duration()</span></code></a></p>
+<p>O widget <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/StackSwitcher.html#Gtk.StackSwitcher" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.StackSwitcher</span></code></a> atua como um controlador para um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Stack</span></code></a>; Ele mostra uma linha de botões para alternar entre as várias páginas do widget de pilha associado.</p>
+<p>Todo o conteúdo para os botões vem das propriedades filho do <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Stack</span></code></a>.</p>
+<p>É possível associar múltiplos widgets <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/StackSwitcher.html#Gtk.StackSwitcher" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.StackSwitcher</span></code></a> com o mesmo widget <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Stack.html#Gtk.Stack" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Stack</span></code></a>.</p>
+<div class="section" id="id3">
+<h3>5.4.1. Exemplo<a class="headerlink" href="#id3" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/stack_example.png" src="_images/stack_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">StackWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Stack Demo&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_border_width</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">vbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vbox</span><span class="p">)</span>
+
+        <span class="n">stack</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Stack</span><span class="p">()</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">set_transition_type</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">StackTransitionType</span><span class="o">.</span><span class="n">SLIDE_LEFT_RIGHT</span><span class="p">)</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">set_transition_duration</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        
+        <span class="n">checkbutton</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">CheckButton</span><span class="p">(</span><span class="s2">&quot;Click me!&quot;</span><span class="p">)</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">add_titled</span><span class="p">(</span><span class="n">checkbutton</span><span class="p">,</span> <span class="s2">&quot;check&quot;</span><span class="p">,</span> <span class="s2">&quot;Check Button&quot;</span><span class="p">)</span>
+        
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">()</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_markup</span><span class="p">(</span><span class="s2">&quot;&lt;big&gt;A fancy label&lt;/big&gt;&quot;</span><span class="p">)</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">add_titled</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="s2">&quot;A label&quot;</span><span class="p">)</span>
+
+        <span class="n">stack_switcher</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">StackSwitcher</span><span class="p">()</span>
+        <span class="n">stack_switcher</span><span class="o">.</span><span class="n">set_stack</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">stack_switcher</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">StackWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="headerbar">
+<h2>5.5. HeaderBar<a class="headerlink" href="#headerbar" title="Link permanente para este título">¶</a></h2>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/HeaderBar.html#Gtk.HeaderBar" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.HeaderBar</span></code></a> é semelhante a uma horizontal <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Box.html#Gtk.Box" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Box</span></code></a>, permite colocar filhos no início ou no final. Além disso, permite que um título seja exibido. O título será centrado em relação à largura da caixa, mesmo que os filhos de ambos os lados ocupem diferentes quantidades de espaço.</p>
+<p>Como o GTK+ agora suporta o Client Side Decoration, um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/HeaderBar.html#Gtk.HeaderBar" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.HeaderBar</span></code></a> pode ser usado no lugar da barra de título (que é renderizada pelo Gerenciador de Janelas).</p>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/HeaderBar.html#Gtk.HeaderBar" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.HeaderBar</span></code></a> geralmente está localizado na parte superior de uma janela e deve conter controles comumente usados que afetam o conteúdo abaixo. Eles também fornecem acesso a controles de janela, incluindo o botão de fechar janela e o menu de janela.</p>
+<div class="section" id="id4">
+<h3>5.5.1. Exemplo<a class="headerlink" href="#id4" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/headerbar_example.png" src="_images/headerbar_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span><span class="p">,</span> <span class="n">Gio</span>
+
+<span class="k">class</span> <span class="nc">HeaderBarWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HeaderBar Demo&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_border_width</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="n">hb</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">HeaderBar</span><span class="p">()</span>
+        <span class="n">hb</span><span class="o">.</span><span class="n">set_show_close_button</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">hb</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;HeaderBar example&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_titlebar</span><span class="p">(</span><span class="n">hb</span><span class="p">)</span>
+
+        <span class="n">button</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">()</span>
+        <span class="n">icon</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">ThemedIcon</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mail-send-receive-symbolic&quot;</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new_from_gicon</span><span class="p">(</span><span class="n">icon</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">IconSize</span><span class="o">.</span><span class="n">BUTTON</span><span class="p">)</span>
+        <span class="n">button</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">hb</span><span class="o">.</span><span class="n">pack_end</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+        
+        <span class="n">box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Orientation</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">)</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">StyleContext</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">get_style_context</span><span class="p">(),</span> <span class="s2">&quot;linked&quot;</span><span class="p">)</span>
+
+        <span class="n">button</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">()</span>
+        <span class="n">button</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Arrow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">ArrowType</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ShadowType</span><span class="o">.</span><span class="n">NONE</span><span class="p">))</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+
+        <span class="n">button</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">()</span>
+        <span class="n">button</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Arrow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">ArrowType</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ShadowType</span><span class="o">.</span><span class="n">NONE</span><span class="p">))</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+
+        <span class="n">hb</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">TextView</span><span class="p">())</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">HeaderBarWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="flowbox">
+<h2>5.6. FlowBox<a class="headerlink" href="#flowbox" title="Link permanente para este título">¶</a></h2>
+<p>A <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/FlowBox.html#Gtk.FlowBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.FlowBox</span></code></a> é um contêiner que posiciona widgets filhos em sequência de acordo com sua orientação.</p>
+<p>Por exemplo, com a orientação horizontal, os widgets serão organizados da esquerda para a direita, iniciando uma nova linha na linha anterior, quando necessário. Reduzir a largura neste caso exigirá mais linhas, portanto, uma altura maior será solicitada.</p>
+<p>Da mesma forma, com a orientação vertical, os widgets serão organizados de cima para baixo, iniciando uma nova coluna à direita quando necessário. Reduzir a altura exigirá mais colunas, portanto será solicitada uma largura maior.</p>
+<p>Os filhos de uma <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/FlowBox.html#Gtk.FlowBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.FlowBox</span></code></a> podem ser classificados e filtrados dinamicamente.</p>
+<p>Embora um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/FlowBox.html#Gtk.FlowBox" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.FlowBox</span></code></a> deva ter apenas <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/FlowBoxChild.html#Gtk.FlowBoxChild" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.FlowBoxChild</span></code></a> filhos, você pode adicionar qualquer tipo de widget a ele via <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Container.html#Gtk.Container.add" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Container.add()</span></code></a>, e a <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/FlowBoxChild.html#Gtk.FlowBoxChild" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.FlowBoxChild</span></code></a>, o widget  será automaticamente inserido entre a caixa e o widget.</p>
+<div class="section" id="id5">
+<h3>5.6.1. Exemplo<a class="headerlink" href="#id5" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/flowbox_example.png" src="_images/flowbox_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span><span class="p">,</span> <span class="n">Gdk</span>
+
+<span class="k">class</span> <span class="nc">FlowBoxWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;FlowBox Demo&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_border_width</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+
+        <span class="n">header</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">HeaderBar</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Flow Box&quot;</span><span class="p">)</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">set_subtitle</span><span class="p">(</span><span class="s2">&quot;Sample FlowBox app&quot;</span><span class="p">)</span>
+        <span class="n">header</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">show_close_button</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_titlebar</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+
+        <span class="n">scrolled</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">ScrolledWindow</span><span class="p">()</span>
+        <span class="n">scrolled</span><span class="o">.</span><span class="n">set_policy</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">PolicyType</span><span class="o">.</span><span class="n">NEVER</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">PolicyType</span><span class="o">.</span><span class="n">AUTOMATIC</span><span class="p">)</span>
+
+        <span class="n">flowbox</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">FlowBox</span><span class="p">()</span>
+        <span class="n">flowbox</span><span class="o">.</span><span class="n">set_valign</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Align</span><span class="o">.</span><span class="n">START</span><span class="p">)</span>
+        <span class="n">flowbox</span><span class="o">.</span><span class="n">set_max_children_per_line</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">flowbox</span><span class="o">.</span><span class="n">set_selection_mode</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">SelectionMode</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_flowbox</span><span class="p">(</span><span class="n">flowbox</span><span class="p">)</span>
+
+        <span class="n">scrolled</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">flowbox</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">scrolled</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">color_swatch_new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">str_color</span><span class="p">):</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">color_parse</span><span class="p">(</span><span class="n">str_color</span><span class="p">)</span>
+
+        <span class="n">rgba</span> <span class="o">=</span> <span class="n">Gdk</span><span class="o">.</span><span class="n">RGBA</span><span class="o">.</span><span class="n">from_color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">button</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Button</span><span class="p">()</span>
+
+        <span class="n">area</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">DrawingArea</span><span class="p">()</span>
+        <span class="n">area</span><span class="o">.</span><span class="n">set_size_request</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+        <span class="n">area</span><span class="o">.</span><span class="n">override_background_color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rgba</span><span class="p">)</span>
+
+        <span class="n">button</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">button</span>
+
+    <span class="k">def</span> <span class="nf">create_flowbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flowbox</span><span class="p">):</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;AliceBlue&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AntiqueWhite&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AntiqueWhite1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AntiqueWhite2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AntiqueWhite3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AntiqueWhite4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;aqua&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;aquamarine&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;aquamarine1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;aquamarine2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;aquamarine3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;aquamarine4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;azure&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;azure1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;azure2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;azure3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;azure4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;beige&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bisque&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bisque1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bisque2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bisque3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bisque4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BlanchedAlmond&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;blue1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;blue2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;blue3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;blue4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BlueViolet&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;brown&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;brown1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;brown2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;brown3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;brown4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;burlywood&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;burlywood1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;burlywood2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;burlywood3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;burlywood4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CadetBlue&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CadetBlue1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CadetBlue2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CadetBlue3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CadetBlue4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chartreuse&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chartreuse1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chartreuse2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chartreuse3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chartreuse4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chocolate&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chocolate1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chocolate2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chocolate3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;chocolate4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coral&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coral1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coral2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coral3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coral4&#39;</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+            <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_swatch_new</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+            <span class="n">flowbox</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">FlowBoxWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="notebook">
+<h2>5.7. Notebook<a class="headerlink" href="#notebook" title="Link permanente para este título">¶</a></h2>
+<p>O widget <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Notebook.html#Gtk.Notebook" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Notebook</span></code></a> é um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Container.html#Gtk.Container" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Container</span></code></a> cujos filhos são páginas que podem ser alternadas usando rótulos de guias ao longo de uma borda.</p>
+<p>Existem muitas opções de configuração para o GtkNotebook. Entre outras coisas, você pode escolher em qual borda as abas aparecem (veja <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Notebook.html#Gtk.Notebook.set_tab_pos" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Notebook.set_tab_pos()</span></code></a>), se houver muitas abas para caber no notebook, elas devem ser maiores ou setas de rolagem serão adicionadas (veja <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Notebook.html#Gtk.Notebook.set_scrollable" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Notebook.set_scrollable()</span></code></a>, e se haverá um menu pop-up que permita aos usuários trocar de página (veja <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Notebook.html#Gtk.Notebook.popup_enable" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Notebook.popup_enable()</span></code></a>, <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Notebook.html#Gtk.Notebook.popup_disable" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Notebook.popup_disable()</span></code></a>).</p>
+<div class="section" id="id6">
+<h3>5.7.1. Exemplo<a class="headerlink" href="#id6" title="Link permanente para este título">¶</a></h3>
+<img alt="_images/notebook_plain_example.png" src="_images/notebook_plain_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">MyWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Simple Notebook Example&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_border_width</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notebook</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Notebook</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notebook</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">page1</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page1</span><span class="o">.</span><span class="n">set_border_width</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Default Page!&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">append_page</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">page1</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Plain Title&#39;</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">page2</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page2</span><span class="o">.</span><span class="n">set_border_width</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;A page with an image for a Title.&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">append_page</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">page2</span><span class="p">,</span>
+            <span class="n">Gtk</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new_from_icon_name</span><span class="p">(</span>
+                <span class="s2">&quot;help-about&quot;</span><span class="p">,</span>
+                <span class="n">Gtk</span><span class="o">.</span><span class="n">IconSize</span><span class="o">.</span><span class="n">MENU</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">MyWindow</span><span class="p">()</span>
+<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="label.html" class="btn btn-neutral float-right" title="6. Label" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="unicode.html" class="btn btn-neutral" title="4. Como Lidar com Sequências de Caracteres" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright GNU Free Documentation License 1.3.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

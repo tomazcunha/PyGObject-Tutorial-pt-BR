@@ -1,0 +1,55 @@
+Label
+=====
+
+Labels are the main method of placing non-editable text in windows, for instance
+to place a title next to a :class:`Gtk.Entry` widget. You can specify the text
+in the constructor, or later with the :meth:`Gtk.Label.set_text` or
+:meth:`Gtk.Label.set_markup` methods.
+
+The width of the label will be adjusted automatically. You can produce
+multi-line labels by putting line breaks ("\\n") in the label string.
+
+Labels can be made selectable with :meth:`Gtk.Label.set_selectable`.
+Selectable labels allow the user to copy the label contents to the
+clipboard. Only labels that contain useful-to-copy information —
+such as error messages — should be made selectable.
+
+The label text can be justified using the :meth:`Gtk.Label.set_justify` method.
+The widget is also capable of word-wrapping, which can be activated with
+:meth:`Gtk.Label.set_line_wrap`.
+
+:class:`Gtk.Label` support some simple formatting, for instance allowing you to
+make some text bold, colored, or larger. You can do this by providing a string
+to :meth:`Gtk.Label.set_markup`, using the
+Pango Markup syntax [#pango]_.
+For instance, ``<b>bold text</b> and <s>strikethrough text</s>``.
+In addition, :class:`Gtk.Label` supports clickable hyperlinks.
+The markup for links is borrowed from HTML, using the a with href and title
+attributes. GTK+ renders links similar to the way they appear in web browsers,
+with colored, underlined text. The title attribute is displayed as a tooltip
+on the link.
+
+.. code-block:: python
+
+    label.set_markup("Go to <a href=\"http://www.gtk.org\" "
+                     "title=\"Our website\">GTK+ website</a> for more")
+
+Labels may contain *mnemonics*. Mnemonics are underlined characters in the
+label, used for keyboard navigation. Mnemonics are created by providing a
+string with an underscore before the mnemonic character, such as "_File",
+to the functions :meth:`Gtk.Label.new_with_mnemonic` or
+:meth:`Gtk.Label.set_text_with_mnemonic`.
+Mnemonics automatically activate any activatable widget the label is inside,
+such as a :class:`Gtk.Button`; if the label is not inside the mnemonic's target
+widget, you have to tell the label about the target using
+:meth:`Gtk.Label.set_mnemonic_widget`.
+
+Example
+-------
+
+.. image:: ../images/label_example.png
+
+.. literalinclude:: ../examples/label_example.py
+    :linenos:
+
+.. [#pango] Pango Markup Syntax, http://developer.gnome.org/pango/stable/PangoMarkupFormat.html

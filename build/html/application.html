@@ -1,0 +1,586 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>22. Aplicação &mdash; documentação Python GTK+ 3 Tutorial 3.4</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Buscar" href="search.html"/>
+    <link rel="top" title="documentação Python GTK+ 3 Tutorial 3.4" href="index.html"/>
+        <link rel="next" title="Menus" href="menus.html"/>
+        <link rel="prev" title="21. Objects" href="objects.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python GTK+ 3 Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Instalação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2. Começando</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Noções básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">4. Como Lidar com Sequências de Caracteres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">5. Containers de Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">6. Label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entry.html">7. Entry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="button_widgets.html">8. Widgets de Botão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progressbar.html">9. Barra de Progresso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinner.html">10. Spinner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treeview.html">11. Widgets de Árvore e Lista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cellrenderers.html">12. CellRenderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="combobox.html">13. ComboBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconview.html">14. IconView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textview.html">15. Editor de Texto Multilinha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogs.html">16. Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popover.html">17. Popovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clipboard.html">18. Clipboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drag_and_drop.html">19. Arraste e solte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builder.html">20. Glade e Gtk.Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">21. Objects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">22. Aplicação</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#actions">22.1. Ações</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#menus">22.2. Menus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line">22.3. Linha de Comando</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">22.4. Exemplo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">22.5. Veja também</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Descontinuada</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout-table.html">Tabela</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python GTK+ 3 Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>22. Aplicação</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/application.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application">
+<span id="id1"></span><h1>22. Aplicação<a class="headerlink" href="#application" title="Link permanente para este título">¶</a></h1>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Application.html#Gtk.Application" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Application</span></code></a> abrange muitas tarefas repetitivas que um aplicativo moderno precisa, como manipular várias instâncias, ativação do D-Bus, abertura de arquivos, análise de linha de comando, inicialização/desligamento, gerenciamento de menus, gerenciamento de janelas e muito mais.</p>
+<div class="section" id="actions">
+<h2>22.1. Ações<a class="headerlink" href="#actions" title="Link permanente para este título">¶</a></h2>
+<p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Action.html#Gio.Action" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.Action</span></code></a> é uma maneira de expor qualquer tarefa que seu aplicativo ou widget fizer por um nome. Essas ações podem ser desabilitadas/habilitadas no tempo de execução e podem ser ativadas ou ter um estado alterado (se elas contiverem estado).</p>
+<p>O motivo para usar ações é separar a lógica da interface do usuário. Por exemplo, isso permite usar uma barra de menu no OSX e um menu de engrenagem no GNOME, simplesmente referenciando o nome de uma ação. A principal implementação que você estará usando é <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/SimpleAction.html#Gio.SimpleAction" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.SimpleAction</span></code></a> que será mostrado mais tarde.</p>
+<p>Muitas classes, como <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/MenuItem.html#Gio.MenuItem" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.MenuItem</span></code></a> e <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ModelButton.html#Gtk.ModelButton" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ModelButton</span></code></a> suportam propriedades para definir um nome de ação.</p>
+<p>Estas ações podem ser agrupadas em um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/ActionGroup.html#Gio.ActionGroup" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.ActionGroup</span></code></a> e quando esses grupos são adicionados a um widget com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget.insert_action_group" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Widget.insert_action_group()</span></code></a>, eles ganharão um prefixo. Tal como “win” quando adicionado a um <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ApplicationWindow.html#Gtk.ApplicationWindow" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.ApplicationWindow</span></code></a>. Você usará o nome completo da ação ao fazer referência a ele, como “app.about”, mas ao criar a ação, ela ficará “about” até ser adicionada ao aplicativo.</p>
+<p>Você também pode facilmente criar keybindings para ações definindo a propriedade <cite>accel</cite> no arquivo <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Menu.html#Gio.Menu" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.Menu</span></code></a> ou usando <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Application.html#Gtk.Application.add_accelerator" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Application.add_accelerator()</span></code></a>.</p>
+</div>
+<div class="section" id="menus">
+<h2>22.2. Menus<a class="headerlink" href="#menus" title="Link permanente para este título">¶</a></h2>
+<p>Seus menus devem ser definidos em XML usando <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Menu.html#Gio.Menu" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.Menu</span></code></a> e referenciam as ações mencionadas anteriormente que você definiu. <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Application.html#Gtk.Application" title="(em Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Application</span></code></a> permite que você defina um menu via <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Application.html#Gtk.Application.set_app_menu" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Application.set_app_menu()</span></code></a> ou <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Application.html#Gtk.Application.set_menubar" title="(em Gtk 3.0 v3.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gtk.Application.set_menubar()</span></code></a>. Se você faz uso de <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Resource.html#Gio.Resource" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.Resource</span></code></a> isto pode usar automaticamente o menu correto baseado na plataforma, caso contrário você pode configurá-los manualmente. Um exemplo detalhado é mostrado abaixo.</p>
+</div>
+<div class="section" id="command-line">
+<h2>22.3. Linha de Comando<a class="headerlink" href="#command-line" title="Link permanente para este título">¶</a></h2>
+<p>Ao criar seu aplicativo, ele recebe uma propriedade de flag de <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/flags.html#Gio.ApplicationFlags" title="(em Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.ApplicationFlags</span></code></a>. Usando isso, você pode permitir que ele manipule tudo sozinho ou tenha um comportamento mais personalizado.</p>
+<p>Você pode usar o <cite>HANDLES_COMMAND_LINE</cite> para permitir um comportamento customizado em <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Application.html#Gio.Application.do_command_line" title="(em Gio 2.0 v2.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gio.Application.do_command_line()</span></code></a>. Em combinação com <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Application.html#Gio.Application.add_main_option" title="(em Gio 2.0 v2.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gio.Application.add_main_option()</span></code></a> para adicionar opções personalizadas.</p>
+<p>Usar <cite>HANDLES_OPEN</cite> fará o trabalho de simplesmente pegar argumentos de arquivo para você e permitir que você os manipule em <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Application.html#Gio.Application.do_open" title="(em Gio 2.0 v2.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Gio.Application.do_open()</span></code></a>.</p>
+<p>Se o seu aplicativo já estiver aberto, todos serão enviados para a instância existente, a menos que você use <cite>NON_UNIQUE</cite> para permitir várias instâncias.</p>
+</div>
+<div class="section" id="example">
+<h2>22.4. Exemplo<a class="headerlink" href="#example" title="Link permanente para este título">¶</a></h2>
+<img alt="_images/application_example.png" src="_images/application_example.png" />
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">GLib</span><span class="p">,</span> <span class="n">Gio</span><span class="p">,</span> <span class="n">Gtk</span>
+
+<span class="c1"># This would typically be its own file</span>
+<span class="n">MENU_XML</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="s2">&lt;interface&gt;</span>
+<span class="s2">  &lt;menu id=&quot;app-menu&quot;&gt;</span>
+<span class="s2">    &lt;section&gt;</span>
+<span class="s2">      &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Change label&lt;/attribute&gt;</span>
+<span class="s2">      &lt;item&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;action&quot;&gt;win.change_label&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;target&quot;&gt;String 1&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;String 1&lt;/attribute&gt;</span>
+<span class="s2">      &lt;/item&gt;</span>
+<span class="s2">      &lt;item&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;action&quot;&gt;win.change_label&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;target&quot;&gt;String 2&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;String 2&lt;/attribute&gt;</span>
+<span class="s2">      &lt;/item&gt;</span>
+<span class="s2">      &lt;item&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;action&quot;&gt;win.change_label&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;target&quot;&gt;String 3&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;String 3&lt;/attribute&gt;</span>
+<span class="s2">      &lt;/item&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section&gt;</span>
+<span class="s2">      &lt;item&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;action&quot;&gt;win.maximize&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Maximize&lt;/attribute&gt;</span>
+<span class="s2">      &lt;/item&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">    &lt;section&gt;</span>
+<span class="s2">      &lt;item&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;action&quot;&gt;app.about&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_About&lt;/attribute&gt;</span>
+<span class="s2">      &lt;/item&gt;</span>
+<span class="s2">      &lt;item&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;action&quot;&gt;app.quit&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;label&quot; translatable=&quot;yes&quot;&gt;_Quit&lt;/attribute&gt;</span>
+<span class="s2">        &lt;attribute name=&quot;accel&quot;&gt;&amp;lt;Primary&amp;gt;q&lt;/attribute&gt;</span>
+<span class="s2">    &lt;/item&gt;</span>
+<span class="s2">    &lt;/section&gt;</span>
+<span class="s2">  &lt;/menu&gt;</span>
+<span class="s2">&lt;/interface&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">AppWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">ApplicationWindow</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># This will be in the windows group and have the &quot;win&quot; prefix</span>
+        <span class="n">max_action</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">SimpleAction</span><span class="o">.</span><span class="n">new_stateful</span><span class="p">(</span><span class="s2">&quot;maximize&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                                           <span class="n">GLib</span><span class="o">.</span><span class="n">Variant</span><span class="o">.</span><span class="n">new_boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+        <span class="n">max_action</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;change-state&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_maximize_toggle</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">max_action</span><span class="p">)</span>
+
+        <span class="c1"># Keep it in sync with the actual state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;notify::is-maximized&quot;</span><span class="p">,</span>
+                            <span class="k">lambda</span> <span class="n">obj</span><span class="p">,</span> <span class="n">pspec</span><span class="p">:</span> <span class="n">max_action</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span>
+                                               <span class="n">GLib</span><span class="o">.</span><span class="n">Variant</span><span class="o">.</span><span class="n">new_boolean</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">is_maximized</span><span class="p">)))</span>
+
+        <span class="n">lbl_variant</span> <span class="o">=</span> <span class="n">GLib</span><span class="o">.</span><span class="n">Variant</span><span class="o">.</span><span class="n">new_string</span><span class="p">(</span><span class="s2">&quot;String 1&quot;</span><span class="p">)</span>
+        <span class="n">lbl_action</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">SimpleAction</span><span class="o">.</span><span class="n">new_stateful</span><span class="p">(</span><span class="s2">&quot;change_label&quot;</span><span class="p">,</span> <span class="n">lbl_variant</span><span class="o">.</span><span class="n">get_type</span><span class="p">(),</span>
+                                               <span class="n">lbl_variant</span><span class="p">)</span>
+        <span class="n">lbl_action</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;change-state&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_change_label_state</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">lbl_action</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">lbl_variant</span><span class="o">.</span><span class="n">get_string</span><span class="p">(),</span>
+                               <span class="n">margin</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_change_label_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">get_string</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">on_maximize_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">get_boolean</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">maximize</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unmaximize</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">Application</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Application</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">application_id</span><span class="o">=</span><span class="s2">&quot;org.example.myapp&quot;</span><span class="p">,</span>
+                         <span class="n">flags</span><span class="o">=</span><span class="n">Gio</span><span class="o">.</span><span class="n">ApplicationFlags</span><span class="o">.</span><span class="n">HANDLES_COMMAND_LINE</span><span class="p">,</span>
+                         <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_main_option</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">),</span> <span class="n">GLib</span><span class="o">.</span><span class="n">OptionFlags</span><span class="o">.</span><span class="n">NONE</span><span class="p">,</span>
+                             <span class="n">GLib</span><span class="o">.</span><span class="n">OptionArg</span><span class="o">.</span><span class="n">NONE</span><span class="p">,</span> <span class="s2">&quot;Command line test&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">do_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">do_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">SimpleAction</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;about&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;activate&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_about</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="n">Gio</span><span class="o">.</span><span class="n">SimpleAction</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;quit&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;activate&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_quit</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+        <span class="n">builder</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Builder</span><span class="o">.</span><span class="n">new_from_string</span><span class="p">(</span><span class="n">MENU_XML</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_app_menu</span><span class="p">(</span><span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;app-menu&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">do_activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># We only allow a single window and raise any existing ones</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
+            <span class="c1"># Windows are associated with the application</span>
+            <span class="c1"># when the last one is closed the application shuts down</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">AppWindow</span><span class="p">(</span><span class="n">application</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Main Window&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">present</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">do_command_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command_line</span><span class="p">):</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">command_line</span><span class="o">.</span><span class="n">get_options_dict</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">):</span>
+            <span class="c1"># This is printed on the main instance</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test argument recieved&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">on_about</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+        <span class="n">about_dialog</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">AboutDialog</span><span class="p">(</span><span class="n">transient_for</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">modal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">about_dialog</span><span class="o">.</span><span class="n">present</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_quit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="see-also">
+<h2>22.5. Veja também<a class="headerlink" href="#see-also" title="Link permanente para este título">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://wiki.gnome.org/HowDoI/GtkApplication">https://wiki.gnome.org/HowDoI/GtkApplication</a></li>
+<li><a class="reference external" href="https://wiki.gnome.org/HowDoI/GAction">https://wiki.gnome.org/HowDoI/GAction</a></li>
+<li><a class="reference external" href="https://wiki.gnome.org/HowDoI/ApplicationMenu">https://wiki.gnome.org/HowDoI/ApplicationMenu</a></li>
+<li><a class="reference external" href="https://wiki.gnome.org/HowDoI/GMenu">https://wiki.gnome.org/HowDoI/GMenu</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="menus.html" class="btn btn-neutral float-right" title="Menus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="objects.html" class="btn btn-neutral" title="21. Objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright GNU Free Documentation License 1.3.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
